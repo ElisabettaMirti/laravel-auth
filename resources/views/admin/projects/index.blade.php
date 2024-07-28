@@ -12,7 +12,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Title</th>
                     <th scope="col">Programming Languages</th>
-                    <th scope="col">Project URL</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
 
@@ -22,7 +22,9 @@
                     <td>{{ $project->id }}</td>
                     <td>{{ $project->title }}</td>
                     <td>{{ $project->prog_langs }}</td>
-                    <td>{{ $project->url }}</td>
+                    <td>
+                        <a href="{{Route('admin.projects.show'), $project}}" class="btn btn-light btn-sm">Show</a>
+                    </td>
                 </tr>
             </tbody>
             @endforeach
