@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Project;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProjectStoreRequest;
 
 class ProjectController extends Controller
 {
@@ -13,7 +14,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::paginate(10);
         return view('admin.projects.index', compact('projects'));
     }
 
@@ -22,20 +23,16 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $project = new Project();
+        return view('admin.projects.create', compact('project'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProjectStoreRequest $request)
     {
-        $data = $request->validate([
-            "title" => ["required", "string", "unique:projects", "min:4", "max:50"],
-            "prog_langs" => ["required"],
-            "due_to" => [],
-            "url" => ["url", "min:3", "max:255"],
-        ]);
+        $data = $request->validated();
         $newProject = Project::create($data);
 
         return redirect()->route('admin.projects.show', $newProject);

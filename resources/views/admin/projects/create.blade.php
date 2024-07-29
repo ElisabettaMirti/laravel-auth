@@ -20,22 +20,22 @@
 
                 <div class="mb-3">
                     <label for="title">Title:</label>
-                    <input type="text" name="title" id="title" class="form-control">
+                    <input type="text" name="title" id="title" class="form-control" value="{{ old('title', $project->title)}}">
                 </div>
 
                 <div class="mb-3">
                     <label for="prog_langs">Progamming languages used:</label>
-                    <input type="text" name="prog_langs" id="prog_langs" class="form-control">
+                    <input type="text" name="prog_langs" id="prog_langs" class="form-control" value="{{ old('title', $project->prog_langs)}}">
                 </div>
 
                 <div class="mb-3">
                     <label for="due_to">Due to:</label>
-                    <input type="date" name="due_to" id="due_to" class="form-control">
+                    <input type="date" name="due_to" id="due_to" class="form-control" value="{{ old('title', $project->due_to)}}">
                 </div>
 
                 <div class="mb-3">
                     <label for="url">Image URL: </label>
-                    <input type="text" name="url" id="url" class="form-control">
+                    <input type="text" name="url" id="url" class="form-control" value="{{ old('title', $project->url)}}">
                 </div>
 
                 <input type="submit" value="Add project" class="btn btn-primary me-2">
