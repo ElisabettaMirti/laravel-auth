@@ -10,7 +10,7 @@
         <h1 class="col-12 text-center mb-4 p-4">
             Project List
         </h1>
-        <table class="table table-light table-hover table-striped-columns col-8">
+        <table class="table table-light table-hover table-striped col-8">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -27,8 +27,13 @@
                         <td>{{ $project->title }}</td>
                         <td>{{ $project->prog_langs }}</td>
                         <td>
-                            <a href="{{Route('admin.projects.show', $project)}}" class="btn btn-primary btn-sm">Show</a>
-                            <a href="{{Route('admin.projects.edit', $project)}}" class="btn btn-light btn-sm">Edit</a>
+                            <a href="{{Route('admin.projects.show', $project)}}" class="btn btn-primary btn-sm me-2 ms-2">Show</a>
+                            <a href="{{Route('admin.projects.edit', $project)}}" class="btn btn-light btn-sm me-2">Edit</a>
+                            <form action="{{Route('admin.projects.destroy', $project)}}" method="POST" class="d-inline-block">
+                                @method("DELETE")
+                                @csrf
+                                <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                            </form>
                         </td>
                     </tr>
                 </tbody>
