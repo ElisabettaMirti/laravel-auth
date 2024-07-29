@@ -1,15 +1,13 @@
 @extends('admin.projects.layouts.create-or-edit')
 
 @section('page-title')
-    Add new project
+    Edit {{ $project->title }}
 @endsection
 
 @section('form-action')
-    {{Route('admin.projects.store') }}
+    {{Route('admin.projects.update', $project) }}
 @endsection
 
 @section('form-method')
-    @method('POST')
+    @method('PUT')
 @endsection
-
-
