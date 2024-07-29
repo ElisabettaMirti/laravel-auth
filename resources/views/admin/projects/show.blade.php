@@ -6,12 +6,12 @@
         <div class="col-10">
 
             <h1>
-                {{ $project->title }}
+                Title: {{ $project->title }}
             </h1>
-            <h2>{{ $project->id }}</h2>
-            <h3>{{ $project->prog_langs }}</h3>
-            <h4>{{ $project->due_to }}</h4>
-            <h4>{{ $project->url }}</h4>
+            <h2># {{ $project->id }}</h2>
+            <h3>Programming language: {{ $project->prog_langs }}</h3>
+            <h4>Due to: {{ $project->due_to }}</h4>
+            <img src="{{ $project->url }}" alt="{{ $project->title }}">
 
         </div>
     </div>

@@ -17,16 +17,16 @@
             </thead>
 
             @foreach ($projects as $project)
-            <tbody>
-                <tr>
-                    <td>{{ $project->id }}</td>
-                    <td>{{ $project->title }}</td>
-                    <td>{{ $project->prog_langs }}</td>
-                    <td>
-                        <a href="{{Route('admin.projects.show'), $project}}" class="btn btn-light btn-sm">Show</a>
-                    </td>
-                </tr>
-            </tbody>
+                <tbody>
+                    <tr>
+                        <td>{{ $project->id }}</td>
+                        <td>{{ $project->title }}</td>
+                        <td>{{ $project->prog_langs }}</td>
+                        <td>
+                            <a href="{{Route('admin.projects.show', $project)}}" class="btn btn-light btn-sm">Show</a>
+                        </td>
+                    </tr>
+                </tbody>
             @endforeach
         </table>
     </div>
