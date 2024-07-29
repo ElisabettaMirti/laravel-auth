@@ -30,7 +30,12 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        $data = $request->validate([
+            "title" => ["required", "string", "unique:projects", "min:4", "max:50"],
+            "prog_langs" => ["required"],
+            "due_to" => [],
+            "url" => ["url", "min:3", "max:255"],
+        ]);
         $newProject = Project::create($data);
 
         return redirect()->route('admin.projects.show', $newProject);

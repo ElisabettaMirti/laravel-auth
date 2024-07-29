@@ -8,6 +8,16 @@
                 @method("POST")
                 @csrf
 
+                @if ($errors->any())
+                    <div class="mb-3">
+                        <ul class="alert alert-danger ps-4">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <div class="mb-3">
                     <label for="title">Title:</label>
                     <input type="text" name="title" id="title" class="form-control">

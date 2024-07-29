@@ -6,7 +6,7 @@
         <h1 class="col-12 text-center mb-4 p-4">
             Project List
         </h1>
-        <table class="table table-info table-striped-columns">
+        <table class="table table-light table-hover table-striped-columns col-8">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -23,7 +23,8 @@
                         <td>{{ $project->title }}</td>
                         <td>{{ $project->prog_langs }}</td>
                         <td>
-                            <a href="{{Route('admin.projects.show', $project)}}" class="btn btn-light btn-sm">Show</a>
+                            <a href="{{Route('admin.projects.show', $project)}}" class="btn btn-primary btn-sm">Show</a>
+                            <a href="{{Route('admin.projects.edit', $project)}}" class="btn btn-light btn-sm">Edit</a>
                         </td>
                     </tr>
                 </tbody>
